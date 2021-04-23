@@ -6,10 +6,10 @@ import theme from "./theme";
 import App from "./App";
 
 ReactDOM.render(
-  <CssBaseline>
-    <ThemeProvider theme={theme}>
+  <ThemeProvider theme={theme}>
+    <CssBaseline>
       <App />
-    </ThemeProvider>
-  </CssBaseline>,
+    </CssBaseline>
+  </ThemeProvider>,
   document.getElementById("root")
 );

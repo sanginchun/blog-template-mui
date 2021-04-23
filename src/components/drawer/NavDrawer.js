@@ -51,7 +51,7 @@ function NavDrawer({ open, onDrawerClose }) {
         <div className={classes.socialIcons}>
           <SocialIcons />
         </div>
-        <List component="nav" aria-label="main mailbox folders">
+        <List component="nav" aria-label="main menu">
           {renderedList}
         </List>
       </div>

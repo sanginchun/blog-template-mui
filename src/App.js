@@ -1,15 +1,52 @@
 import React, { useState } from "react";
-import { Container } from "@material-ui/core";
+import { Container, Grid, makeStyles } from "@material-ui/core";
 import Header from "./components/Header";
 import NavDrawer from "./components/drawer/NavDrawer";
+import PostList from "./components/post/PostList";
+import CategoryMenu from "./components/CategoryMenu";
+import Footer from "./components/Footer";
+
+const useStyle = makeStyles({
+  header: {
+    position: "sticky",
+    marginBottom: "1rem",
+    top: 0,
+    zIndex: "100",
+    backgroundColor: "#fff",
+    opacity: 0.9,
+  },
+  categoryMenu: {
+    position: "sticky",
+    height: "600px",
+    overflow: "hidden",
+    top: 0,
+    alignSelf: "flex-start",
+  },
+});
 
 function App() {
+  const classes = useStyle();
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
     <Container maxWidth="lg">
       <NavDrawer open={drawerOpen} onDrawerClose={() => setDrawerOpen(false)} />
-      <Header onDrawerOpen={() => setDrawerOpen(true)} />
+      <header className={classes.header}>
+        <Header onDrawerOpen={() => setDrawerOpen(true)} />
+      </header>
+      <main>
+        <Grid container spacing={2}>
+          <Grid item container xs={12} lg={8}>
+            <PostList />
+          </Grid>
+          <Grid className={classes.categoryMenu} item xs={12} lg={4}>
+            <CategoryMenu />
+          </Grid>
+        </Grid>
+      </main>
+      <footer>
+        <Footer />
+      </footer>
     </Container>
   );
 }
