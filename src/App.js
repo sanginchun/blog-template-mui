@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "@material-ui/core";
 import Header from "./components/Header";
+import NavDrawer from "./components/drawer/NavDrawer";
 
 function App() {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
   return (
     <Container maxWidth="lg">
-      <Header />
+      <NavDrawer open={drawerOpen} onDrawerClose={() => setDrawerOpen(false)} />
+      <Header onDrawerOpen={() => setDrawerOpen(true)} />
     </Container>
   );
 }

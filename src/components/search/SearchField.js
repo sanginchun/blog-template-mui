@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { TextField, InputAdornment } from "@material-ui/core";
 
-import SearchIcon from "@material-ui/icons/Search";
+import { FiSearch } from "react-icons/fi";
 
 const propTypes = { autoFocus: PropTypes.bool };
 
@@ -18,7 +18,7 @@ function SearchField({ autoFocus }) {
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
-              <SearchIcon />
+              <FiSearch size={24} color="rgba(0, 0, 0, 0.54)" />
             </InputAdornment>
           ),
         }}

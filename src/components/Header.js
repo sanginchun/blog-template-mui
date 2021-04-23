@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Box, Grid, IconButton, Typography } from "@material-ui/core";
 import { makeStyles, useMediaQuery, useTheme } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
 
-import SearchIcon from "@material-ui/icons/Search";
+import { FiMenu, FiSearch } from "react-icons/fi";
+
 import SearchField from "./search/SearchField";
 import SearchDialog from "./search/SearchDialog";
 
@@ -13,16 +13,20 @@ const useStyles = makeStyles({
   iconButtonLg: { fontSize: "2rem" },
 });
 
-function Header() {
+function Header({ onDrawerOpen }) {
   const [searchDialogOpen, setSearchDialogOpen] = useState(false);
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
 
+  const onMenuKeyDown = (e) => {
+    if (e.key === "Enter") onDrawerOpen();
+  };
+
   const renderedSearch = matches ? (
     <>
       <IconButton aria-label="search" onClick={() => setSearchDialogOpen(true)}>
-        <SearchIcon />
+        <FiSearch />
       </IconButton>
       <SearchDialog
         open={searchDialogOpen}
@@ -37,8 +41,13 @@ function Header() {
     <Box className={classes.header}>
       <Grid container justify="space-between" alignItems="center">
         <Grid item xs={2}>
-          <IconButton aria-label="menu" className={classes.iconButtonLg}>
-            <MenuIcon fontSize={matches ? "default" : "inherit"} />
+          <IconButton
+            aria-label="menu"
+            className={classes.iconButtonLg}
+            onClick={onDrawerOpen}
+            onKeyDown={onMenuKeyDown}
+          >
+            <FiMenu size={matches ? 20 : 30} />
           </IconButton>
         </Grid>
         <Grid item className={classes.title}>
