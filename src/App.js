@@ -30,7 +30,11 @@ function App() {
 
   return (
     <Container maxWidth="lg">
-      <NavDrawer open={drawerOpen} onDrawerClose={() => setDrawerOpen(false)} />
+      <NavDrawer
+        open={drawerOpen}
+        onDrawerOpen={() => setDrawerOpen(true)}
+        onDrawerClose={() => setDrawerOpen(false)}
+      />
       <header className={classes.header}>
         <Header onDrawerOpen={() => setDrawerOpen(true)} />
       </header>

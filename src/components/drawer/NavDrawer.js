@@ -27,7 +27,7 @@ const useStyles = makeStyles({
   navList: { width: "300px", fontSize: "1.2rem" },
 });
 
-function NavDrawer({ open, onDrawerClose }) {
+function NavDrawer({ open, onDrawerOpen, onDrawerClose }) {
   const classes = useStyles();
 
   const onNavKeyDown = (e) => {
@@ -42,7 +42,12 @@ function NavDrawer({ open, onDrawerClose }) {
   ));
 
   return (
-    <SwipeableDrawer anchor="left" open={open} onClose={onDrawerClose}>
+    <SwipeableDrawer
+      anchor="left"
+      open={open}
+      onOpen={onDrawerOpen}
+      onClose={onDrawerClose}
+    >
       <div className={classes.navList}>
         <div className={classes.socialIcons}>
           <SocialIcons />
