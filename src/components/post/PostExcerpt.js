@@ -40,7 +40,7 @@ function PostExcerpt({ post }) {
           alignItems="center"
           direction={matches ? "column-reverse" : "row"}
         >
-          <Grid item xs={12} sm={10} md={11} lg={10}>
+          <Grid item xs={12} sm={9} md={10}>
             <Box>
               <Typography variant="subtitle1">{post.title}</Typography>
               <p>{post.excerpt}</p>
@@ -49,7 +49,7 @@ function PostExcerpt({ post }) {
               </Typography>
             </Box>
           </Grid>
-          <Grid container item xs={12} sm={2} md={1} lg={2}>
+          <Grid container item xs={12} sm={3} md={2}>
             <img
               className={classes.img}
               src={post.img}

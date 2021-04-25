@@ -6,10 +6,12 @@ import PostList from "./components/post/PostList";
 import CategoryMenu from "./components/CategoryMenu";
 import Footer from "./components/Footer";
 
+const HEADER_HEIGHT = "4.5rem";
+
 const useStyle = makeStyles({
   header: {
     position: "sticky",
-    marginBottom: "1rem",
+    height: HEADER_HEIGHT,
     top: 0,
     zIndex: "100",
     backgroundColor: "#fff",
@@ -17,9 +19,7 @@ const useStyle = makeStyles({
   },
   categoryMenu: {
     position: "sticky",
-    height: "600px",
-    overflow: "hidden",
-    top: 0,
+    top: `calc(${HEADER_HEIGHT} - 0.5rem)`,
     alignSelf: "flex-start",
   },
 });
