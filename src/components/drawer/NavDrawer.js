@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {
-  Drawer,
+  SwipeableDrawer,
   List,
   ListItem,
   ListItemIcon,
@@ -42,20 +42,21 @@ function NavDrawer({ open, onDrawerClose }) {
   ));
 
   return (
-    <Drawer anchor="left" open={open} onClose={onDrawerClose}>
-      <div
-        className={classes.navList}
-        onClick={onDrawerClose}
-        onKeyDown={onNavKeyDown}
-      >
+    <SwipeableDrawer anchor="left" open={open} onClose={onDrawerClose}>
+      <div className={classes.navList}>
         <div className={classes.socialIcons}>
           <SocialIcons />
         </div>
-        <List component="nav" aria-label="main menu">
+        <List
+          component="nav"
+          aria-label="main menu"
+          onClick={onDrawerClose}
+          onKeyDown={onNavKeyDown}
+        >
           {renderedList}
         </List>
       </div>
-    </Drawer>
+    </SwipeableDrawer>
   );
 }
 
